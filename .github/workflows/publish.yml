@@ -13,7 +13,7 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -26,13 +26,16 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Bump version (patch)
+      - name: Configure Git
         run: |
-          npm version patch -m "ci: bump version to %s [skip ci]"
+          git config --global user.email "actions@github.com"
+          git config --global user.name "GitHub Actions"
+
+      - name: Bump version (patch)
+        run: npm version patch -m "ci: bump version to %s [skip ci]"
 
       - name: Push version bump commit and tags
-        run: |
-          git push origin HEAD:main --follow-tags
+        run: git push origin HEAD:main --follow-tags
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
