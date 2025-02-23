@@ -89,4 +89,4 @@ MIT Licensed - See [LICENSE](LICENSE) for details.
 
 ---
 
-Made with ❤️ by noluyorAbi - Automate All The Annoying Things! 🤖
+Made with ❤️ by [noluyorAbi](https://github.com/noluyorAbi) - Automate All The Annoying Things! 🤖
