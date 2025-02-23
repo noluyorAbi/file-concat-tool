@@ -1,6 +1,6 @@
 {
   "name": "file-concat-tool",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A tool for generating context windows for AI prompting by recursively searching for .ts and .tsx files and concatenating their contents into a text file.",
   "main": "index.js",
   "bin": {
@@ -9,6 +9,25 @@
   "scripts": {
     "start": "node index.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/noluyorAbi/file-concat-tool.git"
+  },
+  "keywords": [
+    "AI",
+    "context window",
+    "prompting",
+    "code extraction",
+    "file concatenation",
+    "TypeScript",
+    "TSX",
+    "automation",
+    "CLI",
+    "developer tool",
+    "machine learning",
+    "NLP",
+    "code analysis"
+  ],
   "author": "noluyorAbi",
   "license": "MIT"
 }

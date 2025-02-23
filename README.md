@@ -1,8 +1,8 @@
-Below is an example `README.md` you can include in your project:
-
 # File Concat Tool 🚀
 
 **File Concat Tool** is an npm package designed to generate context windows for AI prompting. It recursively searches for `.ts` and `.tsx` files (while ignoring the `node_modules` folder and files with "config" in their names) and concatenates their contents into a single text file. This is especially useful for issue detection and context generation in smaller projects.
+
+⚠ **Note:** Currently, this tool **only supports `.tsx` and `.ts` files**, as these are my primary use cases. I might tweak it in the future to support other file types for different scenarios.
 
 ## Motivation 😅
 
