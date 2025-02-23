@@ -4,14 +4,14 @@
   "description": "A tool for generating context windows for AI prompting by recursively searching for .ts and .tsx files and concatenating their contents into a text file.",
   "main": "index.js",
   "bin": {
-    "file-concat": "./index.js"
+    "file-concat": "index.js"
   },
   "scripts": {
     "start": "node index.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/noluyorAbi/file-concat-tool.git"
+    "url": "git+https://github.com/noluyorAbi/file-concat-tool.git"
   },
   "keywords": [
     "AI",
