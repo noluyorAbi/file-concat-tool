@@ -39,7 +39,9 @@ function findTsFiles(rootDir) {
  * @param {string} outputFile - Path to the output file.
  */
 function writeFilesToTxt(filePaths, outputFile) {
-  let outputContent = "";
+  let outputContent = `This context file was generated with the npm package file-concat-tool by noluyorAbi\n`;
+  outputContent += `https://www.npmjs.com/package/file-concat-tool\n\n\n`;
+
   for (const filePath of filePaths) {
     let content;
     try {
@@ -52,6 +54,26 @@ function writeFilesToTxt(filePaths, outputFile) {
     outputContent += content + "\n\n";
   }
   fs.writeFileSync(outputFile, outputContent, "utf8");
+}
+
+/**
+ * Updates .gitignore to ignore "tsx_ts_files_content.txt" if the file exists.
+ *
+ * @param {string} rootDir - The root directory of the project.
+ */
+function updateGitignore(rootDir) {
+  const gitignorePath = path.join(rootDir, ".gitignore");
+  const ignoreEntry = "tsx_ts_files_content.txt";
+
+  if (!fs.existsSync(gitignorePath)) {
+    return; // Do nothing if .gitignore does not exist
+  }
+
+  let gitignoreContent = fs.readFileSync(gitignorePath, "utf8");
+  if (!gitignoreContent.includes(ignoreEntry)) {
+    fs.appendFileSync(gitignorePath, `\n${ignoreEntry}\n`, "utf8");
+    console.log(`Added "${ignoreEntry}" to .gitignore.`);
+  }
 }
 
 /**
@@ -69,6 +91,10 @@ function main() {
 
   console.log(`Writing contents to ${outputTxt}...`);
   writeFilesToTxt(files, outputTxt);
+
+  // Only update .gitignore if it exists
+  updateGitignore(rootDirectory);
+
   console.log("Done!");
 }
 
