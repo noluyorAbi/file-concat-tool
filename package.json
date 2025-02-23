@@ -1,0 +1,14 @@
+{
+  "name": "file-concat-tool",
+  "version": "1.0.0",
+  "description": "A tool for generating context windows for AI prompting by recursively searching for .ts and .tsx files and concatenating their contents into a text file.",
+  "main": "index.js",
+  "bin": {
+    "file-concat": "./index.js"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "noluyorAbi",
+  "license": "MIT"
+}
