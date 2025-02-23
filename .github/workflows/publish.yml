@@ -1,19 +1,19 @@
-name: Publish to npm
+name: Auto Publish to npm with Version Bump
 
 on:
   push:
     branches:
-      - main # Runs only when pushing to the main branch
-    tags:
-      - "v*" # Runs when a new version tag is pushed
+      - main
 
 jobs:
-  publish:
+  version-bump-and-publish:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -25,6 +25,16 @@ jobs:
 
       - name: Install Dependencies
         run: npm install
+
+      - name: Bump version (patch)
+        run: |
+          npm version patch -m "ci: bump version to %s [skip ci]"
+
+      - name: Push version bump commit and tags
+        run: |
+          git push origin HEAD:main --follow-tags
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build (if necessary)
         run: npm run build || echo "No build step"
