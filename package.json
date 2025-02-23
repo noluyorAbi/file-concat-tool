@@ -28,6 +28,9 @@
     "NLP",
     "code analysis"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "author": "noluyorAbi",
   "license": "MIT"
 }
